@@ -4,3 +4,6 @@ langchain-mcp-adapters
 langchain-openai
 langchain-community
 langchain-google-genai
+mysql-connector-python
+tabulate
+flask
