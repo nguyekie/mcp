@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Chat Agent</title>
+    <script>
+        async function sendMessage() {
+            const userMessage = document.getElementById("userMessage").value;
+            
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+            
+            const data = await response.json();
+            const chatBox = document.getElementById("chatBox");
+            
+            if (data.error) {
+                chatBox.innerHTML += `<p><b>Agent (Error):</b> ${data.error}</p>`;
+            } else {
+                chatBox.innerHTML += `<p><b>Bạn:</b> ${userMessage}</p>`;
+                chatBox.innerHTML += `<p><b>Agent:</b> ${data.response}</p>`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Chào mừng đến với Database Chat Agent</h1>
+    <div id="chatBox" style="border:1px solid #000; padding:10px; width:50%; margin:auto;">
+        <p><b>Agent:</b> Xin chào, tôi là Database Agent. Bạn có thể hỏi tôi về database hoặc yêu cầu tôi thực hiện các thao tác như crawl dữ liệu.</p>
+    </div>
+    <div style="width:50%; margin:auto; padding-top:20px;">
+        <input type="text" id="userMessage" style="width:80%;" placeholder="Nhập tin nhắn của bạn...">
+        <button onclick="sendMessage()">Gửi</button>
+    </div>
+</body>
+</html>
