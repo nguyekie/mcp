@@ -381,7 +381,7 @@ def execute_query(db_name: str, query: str) -> str:
     
     Công cụ này cho phép bạn thực hiện các truy vấn SQL tùy chỉnh để lấy dữ liệu từ database.
     Chỉ các câu lệnh SELECT được cho phép để đảm bảo an toàn dữ liệu. Kết quả sẽ được hiển thị
-    dưới dạng bảng dễ đọc .
+    dưới dạng bảng dễ đọc trong terminal.
     
     Args:
         db_name: Tên database để thực thi câu lệnh
@@ -427,7 +427,7 @@ def get_database_summary(db_name: str) -> str:
     
     Công cụ này cung cấp tổng quan nhanh về cấu trúc và nội dung của database,
     bao gồm số lượng bảng, số lượng bản ghi, và các thông tin quan trọng khác.
-    Kết quả được hiển thị dưới dạng bảng dễ đọc .
+    Kết quả được hiển thị dưới dạng bảng dễ đọc trong terminal.
     
     Args:
         db_name: Tên database cần lấy thông tin tổng quan
